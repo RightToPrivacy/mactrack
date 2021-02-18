@@ -6,7 +6,7 @@ Contact: righttoprivacy@tutanota.com
 
 ### MACtrack: Proof of concept privacy compromise script
 
-### Howto Use:
+### Howto Use:  (first setup wigle account if you want to do SSID lookups from mactrack, add your API info)
 
 1.) Make sure you have all modules called for/important at top of script: OuiLookup, yawigle, scapy
     to be sure simply run: pip3 install OuiLookup && pip3 install yawigle && pip3 install scapy
