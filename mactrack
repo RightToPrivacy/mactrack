@@ -3,17 +3,18 @@
 # contact: righttoprivacy@tutanota.com
 #
 #
-# RELATED REPOSITORY/PROTECTION: 
+# RELATED REPOSITORY/PROTECTION/Blog: 
+# https://www.buymeacoffee.com/politictech
 # https://github.com/righttoprivacy/mactrack
 # https://gitlab.com/Aresesi/wipri - WiPri metadata/mac/privacy protection
+# See README for more information;
 #
-# My solution for preventing this from identifying you: 
-# Use wipri (see above) & change Home SSID in router + clear old saved wifi nets
+# My solution for preventing this from identifying you + step by step install: 
+# https://www.buymeacoffee.com/politictech/mactrack-howto-use-it-identify-masked-burglars-strangers-outside-your-home
 #
 # My Linux/FOSS/Privacy Videos/Files :
 # https://odysee.com/$/invite/@RTP:9
 # https://tube.tchncs.de/video-channels/privacy__tech_tips
-#
 #
 # You may need to use pip3 to install the following:
 # scapy, yawigle, OuiLookup
