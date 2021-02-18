@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+#
+# contact: righttoprivacy@tutanota.com
+#
+#
+# RELATED REPOSITORY/PROTECTION: 
+# https://github.com/righttoprivacy/mactrack
+# https://gitlab.com/Aresesi/wipri - WiPri metadata/mac/privacy protection
+#
+# My solution for preventing this from identifying you: 
+# Use wipri (see above) & change Home SSID in router + clear old saved wifi nets
+#
+# My Linux/FOSS/Privacy Videos/Files :
+# https://odysee.com/$/invite/@RTP:9
+# https://tube.tchncs.de/video-channels/privacy__tech_tips
+#
+#
+# You may need to use pip3 to install the following:
+# scapy, yawigle, OuiLookup
+#
+# * Be sure to set your wifi card for monitor mode first *
+#
+
+from scapy.all import *
+from yawigle import client
+from OuiLookup import OuiLookup
+import sys
+import time
+from colorama import Fore, Back, Style
+
+# Sniffing the client for ssid
+
+# logfile default is visitor.log; feel free to change;
+logFile = open('visitor.log','a')
+logo = '''
+
+'##::::'##::::'###:::::'######::'########:'########:::::'###:::::'######::'##:::'##:
+ ###::'###:::'## ##:::'##... ##:... ##..:: ##.... ##:::'## ##:::'##... ##: ##::'##::
+ ####'####::'##:. ##:: ##:::..::::: ##:::: ##:::: ##::'##:. ##:: ##:::..:: ##:'##:::
+ ## ### ##:'##:::. ##: ##:::::::::: ##:::: ########::'##:::. ##: ##::::::: #####::::
+ ##. #: ##: #########: ##:::::::::: ##:::: ##.. ##::: #########: ##::::::: ##. ##:::
+ ##:.:: ##: ##.... ##: ##::: ##:::: ##:::: ##::. ##:: ##.... ##: ##::: ##: ##:. ##::
+ ##:::: ##: ##:::: ##:. ######::::: ##:::: ##:::. ##: ##:::: ##:. ######:: ##::. ##:
+..:::::..::..:::::..:::......::::::..:::::..:::::..::..:::::..:::......:::..::::..::
+
+'''
+
+print(logo)
+
+print(Fore.BLUE + "\n______________________________________________\n")
+print(Fore.RED + "MACTRACK: RIGHTTOPRIVACY@TUTANOTA.COM\n")
+print(Fore.BLUE + "______________________________________________\n")
+
+def ssidprobes(pkt) :
+        if pkt.haslayer(Dot11) :
+                if pkt.type == 0 and pkt.subtype == 4 :
+                        client = str(pkt.addr2)
+                        ssid = ({pkt.info.decode('UTF-8')})
+                        print(Back.BLACK + Fore.WHITE + "SSID Probes: ", client, '--->', ssid)
+                        print(Back.BLACK + Fore.WHITE + "Client: ", OuiLookup().query(client))
+                        print(Fore.BLUE + "\n______________________________________________\n")
+                        
+# ***  2 lines down Set your iface = to your wifi card device in monitor mode ***
+
+while True:
+        sniff(iface = "wlan1mon", prn = ssidprobes)
+
+# Below we search wiggle for ssid location
+
+        c = client('AIDinsertYoursHere', 'InsertYourNumberHere') # get API access insert here
+        netname = input(Back.BLACK + Fore.WHITE + "Which SSID: ")
+        nets = c.network.search(ssid=netname)
+        print(Fore.YELLOW + "\n")
+        for i in nets:
+                print(i, str("\n"))
+                logFile.write(str(i) + "\n\n")
+        #logFile.write(str(i))
+        print(Fore.RED + "SEARCH COMPLETE.\n")
+        input(Fore.WHITE + "Press [Enter] To Return To Probe Watching:")
+        logFile.close()
