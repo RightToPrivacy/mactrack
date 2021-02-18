@@ -4,9 +4,12 @@ Another reason to use WiPri - https://gitlab.com/Aresesi/wipri
 
 Contact: righttoprivacy@tutanota.com
 
-### MACtrack: Proof of concept privacy compromise script
+### MACtrack: Identify visitors/ppl (including masked burglars) using phone/pc metadata
 
-### Howto Use:  (first setup wigle account if you want to do SSID lookups from mactrack, add your API info)
+More detailed instructions including cut/paste step by step + solution to prevent MACtrack from being used
+on you can be found at: https://www.buymeacoffee.com/politictech/mactrack-howto-use-it-identify-masked-burglars-strangers-outside-your-home
+
+### Basic Use:  (setup wigle account for if you want to do SSID lookups from mactrack, for just identifying client mac/brand/ssid wigle not needed)
 
 1.) Make sure you have all modules called for/important at top of script: OuiLookup, yawigle, scapy
     to be sure simply run: pip3 install OuiLookup && pip3 install yawigle && pip3 install scapy
@@ -25,4 +28,4 @@ It prints out all WiFi clients in the area looking for previously saved wifi net
 
 This can be used for various purposes- ie: identify a masked burglar outside your home or someone suspicious at the front door by their unique phone mac address/brand name!  
 
-I will let your imagination run wild. Some of those purposes I go over on my video channels/blog
+I will let your imagination run wild. Some of those purposes I will go over on my video channels/blog
