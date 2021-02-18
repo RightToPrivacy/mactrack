@@ -39,6 +39,6 @@ https://www.youtube.com/channel/UChVCEXzi39_YEpUQhqmEFrQ (Classic Youtube with e
 
 It prints out all WiFi clients in the area looking for previously saved wifi networks (think about how many places you ever saved a WiFi network- all those SSID's will be printed on screen with your wifi mac address pointed at it; Then the SSID prompt lets you find all records of GPS/street address locations for that SSID;
 
-This can be used for various purposes- ie: identify a masked burglar outside your home or someone suspicious at the front door by their unique phone mac address/brand name!  
+This can be used for various purposes- ie: identify a masked burglar outside your home or someone suspicious at the front door by their unique phone mac address/brand name and home saved SSID + street address!  
 
 I will let your imagination run wild. Some of those purposes I will go over on my video channels/blog
