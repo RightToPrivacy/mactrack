@@ -61,10 +61,9 @@ def ssidprobes(pkt) :
                         print(Back.BLACK + Fore.WHITE + "Client: ", OuiLookup().query(client))
                         print(Fore.BLUE + "\n______________________________________________\n")
                         
-# ***  2 lines down Set your iface = to your wifi card device in monitor mode ***
-
+# ***  Change wlan0 to your wifi card 
 while True:
-        sniff(iface = "wlan1mon", prn = ssidprobes)
+        sniff(iface = "wlan0", prn = ssidprobes)
 
 # Below we search wiggle for ssid location
 
