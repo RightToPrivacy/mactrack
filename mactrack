@@ -66,7 +66,7 @@ while True:
         sniff(iface = "wlan0", prn = ssidprobes)
 
 # Below we search wiggle for ssid location
-
+# Add your API account info in the brackets below for access to wigle:
         c = client('AIDinsertYoursHere', 'InsertYourNumberHere') # get API access insert here
         netname = input(Back.BLACK + Fore.WHITE + "Which SSID: ")
         nets = c.network.search(ssid=netname)
