@@ -1,15 +1,28 @@
 ### mactrack phone/computer WiFi client mac address -> SSID -> Street address PoC
 
-Another reason to use WiPri - https://gitlab.com/Aresesi/wipri 
+Another reason to use WiPri to spoof your mac - https://gitlab.com/Aresesi/wipri 
 
 Contact: righttoprivacy@tutanota.com
 
 ### MACtrack: Identify visitors/ppl (including masked burglars) using phone/pc metadata
 
-More detailed instructions including cut/paste step by step + solution to prevent MACtrack from being used
-on you can be found at: https://www.buymeacoffee.com/politictech/mactrack-howto-use-it-identify-masked-burglars-strangers-outside-your-home
+### Links:
+
+Blog/Detailed Tips/Support:
+https://www.buymeacoffee.com/politictech
+
+### My Videos Tutorials/Demos:
+https://odysee.com/$/invite/@RTP:9 (invite link helps my channel, Odysee really nice place to share files + videos including mactrack)
+https://tube.tchncs.de/video-channels/privacy__tech_tips (Peertube decentralized platform)
+https://www.bitchute.com/channel/IHbpKZeUrxnI/ (Bitchute: longtime mirror some videos not found elsewhere)
+https://www.youtube.com/channel/UChVCEXzi39_YEpUQhqmEFrQ (Classic Youtube with everything that comes with)
+
+***There may come a time Youtube may no longer appreciate me (if they do now :-P ) so please make sure to subscribe/bookmark my other channels. Some videos also may not go on Youtube.
 
 ### Basic Use:  (setup wigle account for if you want to do SSID lookups from mactrack, for just identifying client mac/brand/ssid wigle not needed)
+
+***See: https://www.buymeacoffee.com/politictech/mactrack-howto-use-it-identify-masked-burglars-strangers-outside-your-home for more details, cut/paste 
+    directions and solutions to preven you being tracked by mactrack.
 
 1.) Make sure you have all modules called for/important at top of script: OuiLookup, yawigle, scapy
     to be sure simply run: pip3 install OuiLookup && pip3 install yawigle && pip3 install scapy
