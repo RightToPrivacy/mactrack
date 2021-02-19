@@ -1,10 +1,10 @@
-### mactrack phone/computer WiFi client mac address -> SSID -> Street address (Proof of concept)
+### mactrack phone/computer WiFi client mac address -> SSID -> Street address (Ethical Proof of concept)
 
 Contact: righttoprivacy@tutanota.com
 
-### For ethical study only.
+### For ethical study only
 
-### MACtrack: Identify devices 
+### MACtrack: Identify devices that are disconnected on your own network
 
 ### Links:
 
