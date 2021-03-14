@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MACtrack
+GenericName=MACtrack
+Exec=/usr/bin/kgx --command mact
+Icon=/usr/share/Applications/mactrackico.png
+Terminal=false
+Categories=Network
