@@ -2,34 +2,43 @@
 #
 # contact: righttoprivacy@tutanota.com
 #
+# READ MY STUFF: 
+# https://www.buymeacoffee.com/politictech/posts
+# https://www.politictech.wordpress.com
 #
-# RELATED REPOSITORY/PROTECTION/Blog: 
-# https://www.buymeacoffee.com/politictech
+# DOWNLOAD MY STUFF:
 # https://github.com/righttoprivacy/mactrack
+# https://www.gitlab.com/Aresesi/mactrack Download my stuff
 # https://gitlab.com/Aresesi/wipri - WiPri metadata/mac/privacy protection
 # See README for more information;
 #
-# My solution for preventing this from identifying you + step by step install: 
+# SOLUTION for preventing this from affecting you + more info/screenshots: 
 # https://www.buymeacoffee.com/politictech/mactrack-howto-use-it-identify-masked-burglars-strangers-outside-your-home
 #
 # My Linux/FOSS/Privacy Videos/Files :
 # https://odysee.com/$/invite/@RTP:9
 # https://tube.tchncs.de/video-channels/privacy__tech_tips
+# 
 #
 # You may need to use pip3 to install the following:
 # scapy, yawigle, OuiLookup
 #
-# * Be sure to set your wifi card for monitor mode first *
+# Big shout out to Scapy (Python module),
+# making life easier
+#
+# And Pine64 (for making the Pinephone)
+#
+# *WARNING: This will set your card into Monitor mode *
+# *** If you wish to handle this yourself, comment out os.system lines ***
 #
 
 from scapy.all import *
 from yawigle import client
 from OuiLookup import OuiLookup
-import sys
-import time
+from time import gmtime, strftime
 from colorama import Fore, Back, Style
-
-# Sniffing the client for ssid
+import os
+import argparse
 
 # logfile default is visitor.log; feel free to change;
 logFile = open('visitor.log','a')
@@ -52,31 +61,43 @@ print(Fore.BLUE + "\n______________________________________________\n")
 print(Fore.RED + "MACTRACK: RIGHTTOPRIVACY@TUTANOTA.COM\n")
 print(Fore.BLUE + "______________________________________________\n")
 
+
+# Sniffing the client for ssid
+# WARNING: sets card in Monitor Mode ***
+# Will integrate more in updates
+print("SETTING MONITOR MODE...\n")
+os.system('ifconfig wlan0 down')
+os.system('iw wlan0 set monitor none')
+os.system('ifconfig wlan0 up')
+
 def ssidprobes(pkt) :
-        if pkt.haslayer(Dot11) :
-                if pkt.type == 0 and pkt.subtype == 4 :
-                        client = str(pkt.addr2)
-                        ssid = ({pkt.info.decode('UTF-16')})
-                        print(Back.BLACK + Fore.WHITE + "SSID Probes: ", client, '--->', ssid)
-                        print(Back.BLACK + Fore.WHITE + "Client: ", OuiLookup().query(client))
-                        print(Fore.BLUE + "\n______________________________________________\n")
+	if pkt.haslayer(Dot11) :
+		if pkt.type == 0 and pkt.subtype == 4 :
+			client = str(pkt.addr2)
+			# ssid = ({pkt.info.decode('UTF-8')})	alternative format
+			ssid = ({pkt.info.decode('latin')})
+			radiotap = pkt.getlayer(RadioTap)
+			rssi = radiotap.dBm_AntSignal
+			print(Back.BLACK + Fore.WHITE + "SSID Probes: ", client, '--->', ssid)
+			print(Back.BLACK + Fore.WHITE + "Client: ", OuiLookup().query(client))
+			print("RSSI={}".format(rssi))
+			print(Fore.BLUE + "\n______________________________________________\n")
                         
-# ***  Change wlan0 to your wifi card 
+# ***  Change wlan0 to your wifi card if different
 while True:
-        sniff(iface = "wlan0", prn = ssidprobes)
+	sniff(iface = "wlan0", prn = ssidprobes)
 
 # Below we search wiggle for ssid location
-# *** If you just want to monitor clients mac/brand -> SSID packets, 
-# you don't need to worry about wigle API below ***
 # Add your API account info in the brackets below for access to wigle:
-        c = client('AIDinsertYoursHere', 'InsertYourNumberHere') # get API access insert here
-        netname = input(Back.BLACK + Fore.WHITE + "Which SSID: ")
-        nets = c.network.search(ssid=netname)
-        print(Fore.YELLOW + "\n")
-        for i in nets:
-                print(i, str("\n"))
-                logFile.write(str(i) + "\n\n")
-        #logFile.write(str(i))
-        print(Fore.RED + "SEARCH COMPLETE.\n")
-        input(Fore.WHITE + "Press [Enter] To Return To Probe Watching:")
-        logFile.close()
+	c = client('AIDinsertYoursHere', 'InsertYourNumberHere') # get API access insert here
+	netname = input(Back.BLACK + Fore.WHITE + "Which SSID: ")
+	nets = c.network.search(ssid=netname)
+	print(Fore.YELLOW + "\n")
+	logFile.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+	for i in nets:
+		print(i, str("\n"))
+		logFile.write()
+		logFile.write(str(i) + "\n\n")
+	print(Fore.RED + "SEARCH COMPLETE.\n")
+	input(Fore.WHITE + "Press [Enter] To Return To Probe Watching:")
+	logFile.close()
