@@ -4,12 +4,13 @@
 # Will work on any Phosh
 # Tested on Pinephone 
 #
-# Blog/more details: https://buymeacoffee.com/politictech
+# Blog/detailed public post: https://www.buymeacoffee.com/politictech/mactrack-howto-use-it-identify-masked-burglars-strangers-outside-your-home
 #
 # QUICK START:
-# Fix any variable differences
+# Fix any variable differences (wlan0 to your card if different)
 # Run this to install to system 
-# edit $sharedir if you need to
+# edit $sharedir if you need to (for desktop file location if using Phosh)
+# Optionally add your Wigle API to use the OSINT location search prompt
 #
 sharedir="/usr/share/applications/"
 
