@@ -19,6 +19,7 @@ Contact: righttoprivacy@tutanota.com
 - check mact, mactrack variables/change wlan0 if that is not your card name
 - to enable location search prompt add API code from wigle acct (see comments in mactrack)
 - run install.sh
+- Now you have a mactrack icon you can click on anytime to start
 That's it. *** This will get updated/streamlined, wanted to upload basic functionality first. ***
 
 You can call mactrack as a command: sudo mactrack
@@ -46,15 +47,14 @@ Blog/Details:
 https://www.buymeacoffee.com/politictech/posts
 https://www.politictech.wordpress.com
 =======
-Blog/Details/Update:
-https://www.buymeacoffee.com/politictech
 >>>>>>> 8cd9d8c4b96bb3938e48b1e3722b22a418f474cb
 
 ### My Video Channel Tutorials/Demos (free help in comments ;):
-https://odysee.com/$/invite/@RTP:9 (invite link helps my channel, Odysee really nice place to share files + videos including mactrack)
-https://tube.tchncs.de/video-channels/privacy__tech_tips (Peertube decentralized platform)
-https://www.bitchute.com/channel/IHbpKZeUrxnI/ (Bitchute: longtime mirror some videos not found elsewhere)
-https://www.youtube.com/channel/UChVCEXzi39_YEpUQhqmEFrQ (Classic Youtube with everything that comes with)
+ODYSEE: https://odysee.com/$/invite/@RTP:9 (invite link helps my channel, Odysee really nice place to share files + videos including mactrack)
+PEERTUBE https://tube.tchncs.de/video-channels/privacy__tech_tips (decentralized platform)
+BITCHUTE: https://www.bitchute.com/channel/IHbpKZeUrxnI/ (Bitchute: longtime mirror some videos not found elsewhere)
+YOUTUBE: https://www.youtube.com/channel/UChVCEXzi39_YEpUQhqmEFrQ (Classic Youtube with everything that comes with)
+BRIGHTEON: https://www.brighteon.com/channels/righttoprivacy
 
 ***There may come a time Youtube may no longer appreciates me (if they do now :-P ) so please make sure to subscribe/bookmark my other channels. Some videos also may not go on Youtube.
 
