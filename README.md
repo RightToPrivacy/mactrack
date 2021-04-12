@@ -6,7 +6,7 @@ Also identifies client brand name to help differentiate devices:
 Another reason to use WiPri to spoof mac/metadata - https://gitlab.com/Aresesi/wipri 
 
 ### FEATURES:
-* Latest update now shows RSSI/signal strength on each packet
+* Latest update now shows RSSI/signal strength on each packet (helping estimate distance)
 - shows client mac address/brand name
 - captures/listens/prints/isolates all saved network requests 
 - OSINT database location lookup GPS/street address + logging to file w/date
